@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        MIT License Copyright (c) 2024 Pounter
+        Github: https://github.com/p0unter  
+        
+        ░▒▓███████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░▒▓████████▓▒░▒▓████████▓▒░▒▓███████▓▒░  
+        ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░   ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░ 
+        ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░   ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░ 
+        ░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░   ░▒▓██████▓▒░ ░▒▓███████▓▒░  
+        ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░   ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░ 
+        ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░   ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░ 
+        ░▒▓█▓▒░       ░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░   ░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░ Video Player
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pounter Video Player | Github: @p0unter</title>
+
+    <!-- CSS Import -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Video Player Inclusive -->
+    <div class="video-player-inclusive">
+        <div class="image-follow"></div>
+        <video class="video-source" src=""></video>
+        
+        <div class="video-controls-inclusive">
+            <div class="video-controls-top">
+                <div class="video-top-left">
+                    <h2 class="video-brand video-class-hover-op">Visit Istanbul and see its beauties!</h2>
+                </div>
+                <div class="video-top-right">
+                    <button class="video-share-button info-element"><img src="icons/share-forward-fill.svg"><span class="info-item info-top info-top-right" style="color: #fff;">Share</span></button>
+                </div>
+            </div>
+            <div class="video-controls-middle" onclick="videoController()"></div>
+            <div class="video-controls-bottom">
+                <div class="video-audio-preview">
+                    
+                </div>
+                <div class="video-range-inclusive">
+                    <input type="range" class="video-range" maxlength="100" minlength="0" value="0">
+                    <div class="range-load"></div>
+                </div>
+                <div class="video-bottom-controls">
+                    <div class="video-control-bottom-left video-bottom-items">
+                        <button id="video-play-button" class="info-element" onclick="videoController()"><img src="icons/play-fill.svg"><span class="info-item info-bottom info-left">Play<b id="sub-key">(k)</b></span></button>
+                        <div class="video-volume" style="height: 100%;">
+                            <button class="video-volume-button info-element" onclick="volumeMuted()"><img src="icons/volume-down-fill.svg"><span class="info-item info-bottom info-center">Mute<b id="sub-key">(m)</b></span></button>
+                            <div class="volume-inclusive info-element">
+                                <input type="range" class="video-volume-range" maxlength="100" minlength="0" value="0">
+                                <span class="info-item info-bottom info-center">Volume</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-control-bottom-center video-bottom-items">
+                        <div class="time-indicator">
+                            <span class="video-now-time">00:00</span> /
+                            <span class="video-time">05:00</span>
+                        </div>
+                    </div>
+                    <div class="video-control-bottom-right video-bottom-items">
+                        <button id="video-subtitle-button" class="info-element"><img src="icons/subtitle.svg"><span class="info-item info-bottom info-center">Subtitles<b id="sub-key">(c)</b></span></button>
+                        <button id="video-options-button" class="info-element"><img src="icons/settings-3-fill.svg"><span class="info-item info-bottom info-center">Settings</span></button>
+                        <button id="video-fullscreen-button" class="info-element"><img src="icons/fullscreen-line.svg"><span class="info-item info-bottom info-right">Fullscreen<b id="full-key">(f)</b></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="video-popup-inclusive" style="visibility: hidden;">
+            <div class="popup-content">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js">
+
+    </script>
+</body>
+</html>
